@@ -2,7 +2,6 @@
 <html>
 
 <?php
-  // Функция отрисовки таблицы умножения
   function drawTable($cols, $rows, $color) {
     echo '<table border="1" width="200">';
 
@@ -67,7 +66,7 @@
     </form>
     <!-- Таблица -->
     <?php
-      drawTable(5, 5, '#dddddd');
+      drawTable(9, 7, '#dddddd');
     ?>
     <!-- Таблица -->
     <!-- Область основного контента -->
