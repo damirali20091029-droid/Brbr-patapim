@@ -40,6 +40,25 @@
     ['link' => 'Таблица умножения', 'href' => 'table.php'],
     ['link' => 'Калькулятор', 'href' => 'calc.php']
   ];
+
+  // Функция отрисовки меню навигации
+  function drawMenu($menu, $vertical = true) {
+    if ($vertical) {
+      // Вертикальное меню - обычный список
+      echo '<ul>';
+      foreach ($menu as $item) {
+        echo '<li><a href="' . $item['href'] . '">' . $item['link'] . '</a></li>';
+      }
+      echo '</ul>';
+    } else {
+      // Горизонтальное меню - пункты выстраиваются в строку
+      echo '<ul style="list-style: none; padding: 0; margin: 0;">';
+      foreach ($menu as $item) {
+        echo '<li style="display: inline-block; margin-right: 15px;"><a href="' . $item['href'] . '">' . $item['link'] . '</a></li>';
+      }
+      echo '</ul>';
+    }
+  }
 ?>
 
 <head>
@@ -82,11 +101,9 @@
     <!-- Навигация -->
     <h2>Навигация по сайту</h2>
     <!-- Меню -->
-    <ul>
-      <?php foreach ($leftMenu as $item): ?>
-        <li><a href='<?= $item['href'] ?>'><?= $item['link'] ?></a></li>
-      <?php endforeach; ?>
-    </ul>
+    <?php
+      drawMenu($leftMenu, true);
+    ?>
     <!-- Меню -->
     <!-- Навигация -->
   </div>

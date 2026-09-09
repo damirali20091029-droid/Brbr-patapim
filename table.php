@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+  // Функция отрисовки таблицы умножения
+  function drawTable($cols, $rows, $color) {
+    echo '<table border="1" width="200">';
+
+    // Внешний цикл - строки таблицы
+    for ($row = 1; $row <= $rows; $row++) {
+      echo '<tr>';
+
+      // Внутренний цикл - столбцы таблицы
+      for ($col = 1; $col <= $cols; $col++) {
+        $value = $row * $col;
+
+        // Проверяем, находится ли ячейка в первой строке или первом столбце
+        if ($row === 1 || $col === 1) {
+          echo '<td style="font-weight: bold; text-align: center; background-color: ' . $color . ';">' . $value . '</td>';
+        } else {
+          echo '<td>' . $value . '</td>';
+        }
+      }
+
+      echo '</tr>';
+    }
+
+    echo '</table>';
+  }
+?>
+
 <head>
   <title>Таблица умножения</title>
   <meta charset="utf-8" />
@@ -38,43 +66,9 @@
       <input type='submit' value='Создать' />
     </form>
     <!-- Таблица -->
-    <table border='1' width="200">
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>4</td>
-        <td>6</td>
-        <td>8</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>6</td>
-        <td>9</td>
-        <td>12</td>
-        <td>15</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>8</td>
-        <td>12</td>
-        <td>16</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>10</td>
-        <td>15</td>
-        <td>20</td>
-        <td>25</td>
-      </tr>
-    </table>
+    <?php
+      drawTable(5, 5, '#dddddd');
+    ?>
     <!-- Таблица -->
     <!-- Область основного контента -->
   </div>
