@@ -2,18 +2,19 @@
 <html>
 
 <?php
-  function drawTable($cols, $rows, $color) {
+  // 
+  function drawTable(int $cols, int $rows, string $color): void {
     echo '<table border="1" width="200">';
 
-    // Внешний цикл - строки таблицы
+    
     for ($row = 1; $row <= $rows; $row++) {
       echo '<tr>';
 
-      // Внутренний цикл - столбцы таблицы
+      
       for ($col = 1; $col <= $cols; $col++) {
         $value = $row * $col;
 
-        // Проверяем, находится ли ячейка в первой строке или первом столбце
+        
         if ($row === 1 || $col === 1) {
           echo '<td style="font-weight: bold; text-align: center; background-color: ' . $color . ';">' . $value . '</td>';
         } else {
@@ -66,7 +67,7 @@
     </form>
     <!-- Таблица -->
     <?php
-      drawTable(9, 7, '#dddddd');
+      drawTable(5, 5, '#dddddd');
     ?>
     <!-- Таблица -->
     <!-- Область основного контента -->
